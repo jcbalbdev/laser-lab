@@ -1,0 +1,126 @@
+---
+interface Props{
+  titulo:string;
+  subtone:string;
+  textuno:string;
+}
+const {titulo,subtone,textuno} = Astro.props;
+import Imagen from './Imagen.astro';
+---
+<div class="content-section">
+  <div class="text-container">
+    <h2 class="section-title">{titulo}</h2>
+    <p class="section-text">
+      {subtone}
+    </p>
+    <p class="section-text">
+      {textuno}
+    </p>
+
+    <p class="section-text">
+      {subtone}
+    </p>
+    <p class="section-text">
+      {textuno}
+    </p>
+
+    <p class="section-text">
+      {subtone}
+    </p>
+    <p class="section-text">
+      {textuno}
+    </p>
+
+    <p class="section-text">
+      {subtone}
+    </p>
+    <p class="section-text">
+      {textuno}
+    </p>
+
+    <p class="section-text">
+      {subtone}
+    </p>
+    <p class="section-text">
+      {textuno}
+    </p>
+  </div>
+
+  <Imagen src='/banner_2.png' alt='Persona usando un microscopio'/>
+</div>
+
+<style>
+  /* Contenedor principal */
+.content-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas iguales en pantallas grandes */
+  gap: 0; /* Sin espacio entre columnas */
+  align-items: stretch; /* Estira los elementos en vertical */
+  
+  max-width: 2400px;
+  
+
+  box-sizing: border-box;
+}
+
+
+/* Contenedor de texto */
+.text-container {
+  padding: 20px; /* Agrega espaciado interno al texto */
+  margin: 20px;
+}
+
+/* Contenedor de imagen */
+.image-container {
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%; /* Hace que la imagen llene toda la altura del contenedor */
+  object-fit: cover; /* Ajusta la imagen sin distorsionarla */
+}
+
+/* Estilo del título */
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #006400;
+  margin-bottom: 15px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Estilo del texto */
+.section-text {
+  font-size: 1rem;
+  color: var(--color-green);
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+  .content-section {
+    grid-template-columns: 1fr; /* Cambia a una sola columna */
+    text-align: center;
+  }
+
+  .image-container {
+    order: -1; /* Mueve la imagen arriba del texto en pantallas pequeñas */
+  }
+
+  .text-container {
+    order: 2;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .section-text {
+    font-size: 0.9rem;
+  }
+}
+
+</style>

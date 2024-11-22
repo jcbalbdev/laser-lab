@@ -1,0 +1,137 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout title="Laboratorio Laser">
+	<main class="main-content">
+		<!-- Video Container -->
+		<div class="video-container">
+			<iframe
+				class="video"
+				src="https://www.youtube.com/embed/VIDEO_ID"
+				title="Video Title"
+				
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				allowfullscreen
+			></iframe>
+		</div>
+	
+		<!-- Card Container -->
+		<div class="card-container">
+			<div class="card">
+				<img src="/building.svg" alt="Icono de Clientes" class="card-icon" />
+				<h3 class="card-title">NUESTROS CLIENTES</h3>
+			</div>
+	
+			<div class="card">
+				<img src="/headset.svg" alt="Icono de Contacto" class="card-icon" />
+				<h3 class="card-title">COMUNÍCATE CON NOSOTROS</h3>
+			</div>
+	
+			<div class="card">
+				<img src="/newspaper.svg" alt="Icono de Noticias" class="card-icon" />
+				<h3 class="card-title">NOTICIAS Y ACTUALIDAD</h3>
+			</div>
+		</div>
+	</main>
+	
+	
+</Layout>
+
+<style>
+/* Contenedor Principal (main) */
+.main-content {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Video Container */
+.video-container {
+  width: 100%;
+  max-width: 2400px;
+  padding-bottom: 56.25%;
+  position: relative;
+  background-color: #f9f9f9;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Espacio entre el video y las cards */
+}
+
+.video-container .video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+}
+
+/* Contenedor de las Cards */
+.card-container {
+	padding:20px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 100%;
+  max-width: 1200px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Estilo para cada Card */
+.card {
+  flex: 1;
+  min-width: 250px;
+  background-color: #f9f9f9;
+  border: 2px solid #006400;
+  border-radius: 1rem;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+
+
+/* Icono de la Card */
+.card-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+/* Título de la Card */
+.card-title {
+  font-size: 1rem;
+  color: #006400;
+  font-weight: 600;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: none;
+    min-width: auto;
+  }
+
+  .card-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .card-title {
+    font-size: 0.9rem;
+  }
+}
+
+</style>

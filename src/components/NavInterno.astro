@@ -1,0 +1,188 @@
+---
+
+---
+
+<div class="tab-container">
+  <!-- Barra de navegación -->
+  <nav class="tab-nav">
+    <button class="tab-button active" data-tab="serologia">SEROLOGÍA</button>
+    <button class="tab-button" data-tab="microbiologia">MICROBIOLOGÍA</button>
+    <button class="tab-button" data-tab="virologia">VIROLOGÍA</button>
+    <button class="tab-button" data-tab="biotecnologia">BIOTECNOLOGÍA</button>
+    <button class="tab-button" data-tab="toxicologia">TOXICOLOGÍA</button>
+    <button class="tab-button" data-tab="varios">VARIOS</button>
+  </nav>
+
+  <!-- Contenido de las secciones -->
+  <div class="tab-content">
+    <div class="tab-panel active" id="serologia">
+      <ul>
+        <li>Aglutinación en placa para Mycoplasma gallisepticum</li>
+        <li>Aglutinación en placa para Mycoplasma synoviae</li>
+        <li>Aglutinación en placa para Salmonella spp</li>
+        <li>Elisa para virus de la Enfermedad de Newcastle (NDV)</li>
+        <li>Elisa para virus de Bronquitis infecciosa (IBV)</li>
+        <li>Elisa para la Enfermedad de Gumboro (IBD)</li>
+        <li>Elisa para la Enfermedad de Gumboro en rango extendido (IBD-XR)</li>
+        <li>Elisa para Mycoplasma gallisepticum</li>
+        <li>Elisa para Mycoplasma synoviae</li>
+        <li>Elisa para Reovirus (REO)</li>
+        <li>Elisa para Pneumovirus (APV)</li>
+        <li>Elisa para Síndrome de baja postura (EDS)</li>
+        <li>Elisa para Anemia (CAV)</li>
+        <li>Elisa para Leucosis (ALV p27)</li>
+        <li>Elisa para Influenza aviar (IA)</li>
+        <li>Elisa para Laringotraqueitis (ILT)</li>
+        <li>Prueba de inhibición de la hemaglutinación Mycoplasma gallisepticum</li>
+        <li>Prueba de inhibición de la hemaglutinación Mycoplasma synoviae</li>
+        <li>Prueba de inhibición de la hemaglutinación para Síndrome de baja postura (EDS)</li>
+        <li>Prueba de inhibición de la hemaglutinación para virus de la enfermedad de Newcastle (NDV)</li>
+        <li>Prueba de inhibición de la hemaglutinación para Coriza (Serotipo A y C)</li>
+      </ul>
+    </div>
+
+    <div class="tab-panel" id="microbiologia">
+      <ul>
+        <li>Ejemplo de contenido para Microbiología 1</li>
+        <li>Ejemplo de contenido para Microbiología 2</li>
+      </ul>
+    </div>
+
+    <div class="tab-panel" id="virologia">
+      <ul>
+        <li>Ejemplo de contenido para Virología 1</li>
+        <li>Ejemplo de contenido para Virología 2</li>
+      </ul>
+    </div>
+
+    <div class="tab-panel" id="biotecnologia">
+      <ul>
+        <li>Ejemplo de contenido para Biotecnología 1</li>
+        <li>Ejemplo de contenido para Biotecnología 2</li>
+      </ul>
+    </div>
+
+    <div class="tab-panel" id="toxicologia">
+      <ul>
+        <li>Ejemplo de contenido para Toxicología 1</li>
+        <li>Ejemplo de contenido para Toxicología 2</li>
+      </ul>
+    </div>
+
+    <div class="tab-panel" id="varios">
+      <ul>
+        <li>Ejemplo de contenido para Varios 1</li>
+        <li>Ejemplo de contenido para Varios 2</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Contenedor Principal */
+.tab-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Barra de Navegación */
+.tab-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #1F744D;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+.tab-button.active {
+    color: #1F744D;
+    border-bottom: 2px solid #1F744D;
+}
+
+/* Contenido de las Secciones */
+.tab-content {
+    padding: 1rem;
+    color: #1F744D;
+}
+
+.tab-panel {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+/* Animación Suave */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .tab-nav {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .tab-button {
+        font-size: 0.9rem;
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tab-button {
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
+
+    .tab-content {
+        padding: 0.5rem;
+    }
+}
+
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const buttons = document.querySelectorAll(".tab-button");
+  const panels = document.querySelectorAll(".tab-panel");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const tab = button.getAttribute("data-tab");
+
+      // Desactivar todas las pestañas y paneles
+      buttons.forEach((btn) => btn.classList.remove("active"));
+      panels.forEach((panel) => panel.classList.remove("active"));
+
+      // Activar la pestaña y panel seleccionados
+      button.classList.add("active");
+      document.getElementById(tab).classList.add("active");
+    });
+  });
+});
+
+</script>

@@ -1,0 +1,304 @@
+---
+import CardVertical from './CardVertical.astro';
+import { cardsData } from '../data/cardData.js';
+
+const itemsPerPage = 4;
+
+/* Función para obtener las cards según la categoría */
+function getCardsByCategory(category) {
+  return category === "todos" ? cardsData : cardsData.filter((card) => card.category === category);
+}
+---
+<div class="tab-container">
+  <!-- Barra de navegación -->
+  <nav class="tab-nav" role="tablist">
+    <button class="tab-button active" data-tab="todos">TODOS</button>
+    <button class="tab-button" data-tab="noticias">NOTICIAS</button>
+    <button class="tab-button" data-tab="investigaciones">INVESTIGACIONES</button>
+    <button class="tab-button" data-tab="reconocimientos">RECONOCIMIENTOS</button>
+  </nav>
+
+  <!-- Contenido de las secciones -->
+  <div class="tab-content">
+    <!-- Sección: Todos -->
+    <div class="tab-panel active" id="todos" data-page="0">
+      {getCardsByCategory("todos").map((card) => <CardVertical {...card} />)}
+      <div class="pagination">
+        <button class="prev-button" data-category="todos">Anterior</button>
+        <button class="next-button" data-category="todos">Siguiente</button>
+      </div>
+    </div>
+
+    <!-- Sección: Noticias -->
+    <div class="tab-panel" id="noticias" data-page="0">
+      {getCardsByCategory("noticias").map((card) => <CardVertical {...card} />)}
+      <div class="pagination">
+        <button class="prev-button" data-category="noticias">Anterior</button>
+        <button class="next-button" data-category="noticias">Siguiente</button>
+      </div>
+    </div>
+
+    <!-- Sección: Investigaciones -->
+    <div class="tab-panel" id="investigaciones" data-page="0">
+      {getCardsByCategory("investigaciones").map((card) => <CardVertical {...card} />)}
+      <div class="pagination">
+        <button class="prev-button" data-category="investigaciones">Anterior</button>
+        <button class="next-button" data-category="investigaciones">Siguiente</button>
+      </div>
+    </div>
+
+    <!-- Sección: Reconocimientos -->
+    <div class="tab-panel" id="reconocimientos" data-page="0">
+      {getCardsByCategory("reconocimientos").map((card) => <CardVertical {...card} />)}
+      <div class="pagination">
+        <button class="prev-button" data-category="reconocimientos">Anterior</button>
+        <button class="next-button" data-category="reconocimientos">Siguiente</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<style>
+  /* Estilos para el contenedor principal */
+.tab-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom:1rem;
+  padding: 1rem;
+}
+
+/* Barra de navegación */
+.tab-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #1F744D;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: color 0.3s, border-bottom 0.3s;
+  border-bottom: 2px solid transparent;
+}
+
+.tab-button.active {
+  color: #1F744D;
+  border-bottom: 2px solid #1F744D;
+}
+
+/* Estilos para el contenido de las pestañas */
+.tab-content {
+  padding: 1rem;
+}
+
+/* Paneles de las pestañas */
+.tab-panel {
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+/* Animación de transición suave */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilos de las cards horizontales */
+.card-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fff;
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-bottom: 1rem;
+}
+
+.card-horizontal:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card-content {
+  flex: 1;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #1F744D;
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .tab-nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tab-button {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+  }
+
+  .card-horizontal {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card-image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .tab-button {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
+
+  .tab-content {
+    padding: 0.5rem;
+  }
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.pagination button {
+  background: #1F744D;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.pagination button:hover {
+  background: #145532;
+}
+
+.pagination button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+</style>
+
+<script>
+  const buttons = document.querySelectorAll(".tab-button");
+const panels = document.querySelectorAll(".tab-panel");
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const tab = button.getAttribute("data-tab");
+
+    // Desactivar todas las pestañas y paneles
+    buttons.forEach((btn) => {
+      btn.classList.remove("active");
+      btn.setAttribute("aria-selected", "false");
+    });
+
+    panels.forEach((panel) => panel.classList.remove("active"));
+
+    // Activar la pestaña y panel seleccionados
+    button.classList.add("active");
+    button.setAttribute("aria-selected", "true");
+    document.getElementById(tab).classList.add("active");
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const itemsPerPage = 4;
+
+    function showCards(category) {
+      const panel = document.getElementById(category);
+      const cards = panel.querySelectorAll<HTMLDivElement>(".card-horizontal");
+
+      const page = parseInt(panel.getAttribute("data-page"), 10);
+
+      // Ocultar todas las cards
+      cards.forEach((card) => (card.style.display = "none"));
+
+      // Mostrar solo las cards de la página actual
+      const start = page * itemsPerPage;
+      const end = start + itemsPerPage;
+      for (let i = start; i < end && i < cards.length; i++) {
+        cards[i].style.display = "flex";
+      }
+    }
+
+    function changePage(category, direction) {
+      const panel = document.getElementById(category);
+      const page = parseInt(panel.getAttribute("data-page"), 10);
+      const totalCards = panel.querySelectorAll(".card-horizontal").length;
+      const totalPages = Math.ceil(totalCards / itemsPerPage);
+
+      // Actualizar el atributo data-page
+      const newPage = Math.max(0, Math.min(page + direction, totalPages - 1));
+      panel.setAttribute("data-page", newPage.toString());
+
+
+      // Mostrar las cards de la nueva página
+      showCards(category);
+    }
+
+    // Manejar los clics de los botones de navegación
+    document.querySelectorAll(".prev-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const category = button.getAttribute("data-category");
+        changePage(category, -1);
+      });
+    });
+
+    document.querySelectorAll(".next-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const category = button.getAttribute("data-category");
+        changePage(category, 1);
+      });
+    });
+
+    // Inicializar mostrando la primera página para cada categoría
+    ["todos", "noticias", "investigaciones", "reconocimientos"].forEach(showCards);
+  });
+</script>

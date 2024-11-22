@@ -1,0 +1,50 @@
+---
+const { image, title, description, link } = Astro.props;
+---
+
+<a href={link} class="card-horizontal">
+  <img src={image} alt={title} class="card-image" />
+  <div class="card-content">
+    <h3 class="card-title">{title}</h3>
+    <p class="card-description">{description}</p>
+  </div>
+</a>
+
+<style>
+  .card-horizontal {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 2px solid #006400;
+    border-radius: 1rem;
+    text-decoration: none;
+    color: inherit;
+    
+  }
+
+  
+  .card-image {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .card-content {
+    flex: 1;
+  }
+
+  .card-title {
+    color: #006400;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-description {
+    font-size: 0.9rem;
+    color: #006400;
+  }
+</style>

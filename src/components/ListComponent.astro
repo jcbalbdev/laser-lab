@@ -1,0 +1,32 @@
+---
+interface Props {
+  items: string[]; // Array genérico para cualquier lista
+}
+
+const { items } = Astro.props;
+---
+
+
+  <ul class="recognition-list">
+    {items.map((item) => (
+      <li>{item}</li>
+    ))}
+  </ul>
+
+  <style>
+/* Lista de reconocimientos */
+.recognition-list {
+  font-size: 1rem;
+  color: var(--color-green);
+  line-height: 1.6;
+  list-style-type: disc;
+  padding-left: 20px; /* Espacio para la lista con viñetas */
+  font-family: 'Arial', sans-serif;
+}
+
+.recognition-list li {
+  margin-bottom: 10px;
+}
+
+
+  </style>

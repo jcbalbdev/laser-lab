@@ -1,0 +1,87 @@
+---
+interface Props{
+  title: string;
+
+}
+const {title} = Astro.props;
+
+import Imagen from './Imagen.astro';
+import ListComponent from './ListComponent.astro';
+const recognitions = [
+  "Premio nacional de laboratorios",
+  "Best place to work 2024",
+  "Reconocimiento de la asociación de avicultores",
+  "Reconocimiento de la asociación de porcicultores",
+  "Reconocimiento de laboratorios latinoamericanos",
+  "Reconocimiento de investigación",
+];
+
+---
+
+<div class="content-section">
+  <Imagen src='/banner_2.png' alt='Persona usando un microscopio'/>
+  
+  <div class="text-container">
+    <h2 class="section-title">{title}</h2>
+    <ListComponent items={recognitions} />
+  </div>
+
+  
+</div>
+
+
+<style>
+/* Contenedor principal */
+.content-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas iguales en pantallas grandes */
+  gap: 0; /* Sin espacio entre columnas */
+  align-items: stretch; /* Estira los elementos en vertical */
+  
+  max-width: 2400px;
+  
+
+  box-sizing: border-box;
+}
+
+/* Contenedor de texto */
+.text-container {
+  margin: 20px;
+  padding: 20px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-green);
+  margin-bottom: 15px;
+  font-family: 'Arial', sans-serif;
+}
+
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+  .content-section {
+    grid-template-columns: 1fr; /* Cambia a una sola columna */
+    text-align: center;
+  }
+
+  .image-container {
+    order: -1; /* Mueve la imagen arriba del texto en pantallas pequeñas */
+  }
+
+  .text-container {
+    order: 2;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .recognition-list {
+    font-size: 0.9rem;
+  }
+}
+
+
+</style>

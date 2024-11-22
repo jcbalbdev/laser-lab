@@ -1,0 +1,58 @@
+export const cardsData = [
+  {
+    image: "/banner_1.png",
+    title: "Noticia 1",
+    description: "Descripción para la card de ejemplo 1.",
+    link: "/",
+    category: "noticias",
+  },
+  {
+    image: "/banner_2.png",
+    title: "Noticia 2",
+    description: "Descripción para la card de ejemplo 1.",
+    link: "/pagina-ejemplo-1",
+    category: "noticias",
+  },
+  {
+    image: "/banner_1.png",
+    title: "Investigación 1",
+    description: "Resumen de la investigación más reciente publicada.",
+    link: "/investigacion-reciente",
+    category: "investigaciones",
+  },
+  {
+    image: "/banner_2.png",
+    title: "Reconocimiento 1",
+    description: "Detalles del reconocimiento recibido.",
+    link: "/reconocimiento-destacado",
+    category: "reconocimientos",
+  },
+  {
+    image: "/banner_2.png",
+    title: "noticia 3",
+    description: "Detalles sobre la última noticia destacada.",
+    link: "/noticia-destacada",
+    category: "noticias",
+  },
+  {
+    image: "/banner_1.png",
+    title: "investigacion 2",
+    description: "Descripción de un estudio innovador reciente.",
+    link: "/estudio-innovador",
+    category: "investigaciones",
+  },
+  {
+    image: "/banner_1.png",
+    title: "investigacion 3",
+    description: "Descripción de un estudio innovador reciente.",
+    link: "/estudio-innovador",
+    category: "investigaciones",
+  },
+  {
+    image: "/banner_2.png",
+    title: "Investigación 4",
+    description: "Resumen de la investigación más reciente publicada.",
+    link: "/investigacion-reciente",
+    category: "investigaciones",
+  },
+];

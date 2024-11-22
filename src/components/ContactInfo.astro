@@ -1,0 +1,165 @@
+---
+/* Este componente es estático, así que no se requieren props */
+---
+
+<div class="contact-info">
+  <!-- Sección de Teléfonos -->
+  <form class="form-container">
+    <!-- Nombre -->
+    <div class="form-group">
+      <label for="first_name" class="form-label">Nombre</label>
+      <input type="text" id="first_name" class="form-input" placeholder="Ingresa tu nombre" required />
+    </div>
+  
+    <!-- Apellido -->
+    <div class="form-group">
+      <label for="last_name" class="form-label">Apellido</label>
+      <input type="text" id="last_name" class="form-input" placeholder="Ingresa tu apellido" required />
+    </div>
+  
+    <!-- Teléfono -->
+    <div class="form-group">
+      <label for="phone" class="form-label">Teléfono</label>
+      <input type="tel" id="phone" class="form-input" placeholder="Ingresa tu número de teléfono" required />
+    </div>
+  
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email" class="form-label">Correo Electrónico</label>
+      <input type="email" id="email" class="form-input" placeholder="Ingresa tu correo electrónico" required />
+    </div>
+  
+    <!-- Mensaje -->
+    <div class="form-group">
+      <label for="message" class="form-label">Mensaje</label>
+      <textarea id="message" rows="4" class="form-textarea" placeholder="Escribe tu mensaje aquí..." required></textarea>
+    </div>
+  
+    <!-- Botón de Enviar -->
+    <button type="submit" class="form-button">Enviar</button>
+  </form>
+</div>
+
+<style>
+/* Contenedor principal */
+.contact-info {
+  padding: 0;
+  max-width: 600px;
+  margin: 2rem auto;
+  border-radius: 12px;
+  color: #fff;
+  text-align: center;
+}
+
+/* formulario */
+/* Contenedor del formulario */
+.form-container {
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+}
+
+/* Estilo de cada grupo de formulario */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Etiquetas */
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: left;
+  padding: 0.25rem  0.5rem;
+  color: var(--color-green);
+}
+
+/* Campos de entrada */
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  color: var(--color-green);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-textarea {
+  resize: none;
+}
+
+/* Interacciones en foco */
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--color-green);
+  outline: none;
+}
+
+/* Botón */
+.form-button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--color-grey);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.form-button:hover {
+  background-color: var(--color-green);
+
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .contact-info {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+
+  .form-container {
+    padding: 1.5rem;
+  }
+
+  .form-button {
+    font-size: 1rem;
+    padding: 0.65rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-info {
+    padding: 1rem;
+  }
+
+  .form-container {
+    padding: 1rem;
+  }
+
+  .form-label {
+    font-size: 0.9rem;
+  }
+
+  .form-input,
+  .form-textarea {
+    font-size: 0.9rem;
+    padding: 0.65rem;
+  }
+
+  .form-button {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+}
+</style>
