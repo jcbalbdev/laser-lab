@@ -1,24 +1,128 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
 ---
 
 <Layout title="Laboratorio Laser">
-	<main class="main-content">
-		<!-- Video Container -->
-		<div class="video-container">
-			<iframe
-				class="video"
-				src="https://www.youtube.com/embed/VIDEO_ID"
-				title="Video Title"
-				
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-				allowfullscreen
-			></iframe>
-		</div>
-	
-		<!-- Card Container -->
-		<div class="card-container">
+  <main class="main-content">
+    <!-- Video Container -->
+    <div class="video-container">
+      <iframe
+        class="video"
+        src="https://www.youtube.com/embed/VIDEO_ID"
+        title="Video Title"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+    <section class="labs-section">
+      <h2 class="labs-title">NUESTROS LABORATORIOS</h2>
+
+      <div class="logos-container">
+        <!-- Logo Lasser -->
+        <div class="lasser-block">
+          <img src="Lasser.png" alt="Lasser" class="lasser-img" />
+
+          <div class="green-line"></div>
+
+          <p class="lasser-text">
+            Lasser Laboratorios Veterinarios es una empresa peruana dedicada a
+            servicios para el sector pecuario. Contamos con el reconocimiento de
+            las instituciones nacionales e internacionales más relevantes
+          </p>
+
+          <div class="green-line"></div>
+        </div>
+
+        <!-- Logo Jallavet -->
+        <div class="jallavet-block">
+          <img src="Jllavet.png" alt="Jallavet" class="jallavet-img" />
+        </div>
+      </div>
+    </section>
+    <section class="services-section">
+      <h2 class="services-title">SERVICIOS</h2>
+
+      <div class="services-grid">
+        <!-- CARD 1 - AVES -->
+        <div class="service-card">
+          <img src="aves.png" alt="Aves" class="card-img" />
+        </div>
+
+        <!-- CARD 2 - PORCINOS -->
+        <div class="service-card">
+          <img src="porcinos.png" alt="Porcinos" class="card-img" />
+        </div>
+
+        <!-- CARD 3 - OTROS -->
+        <div class="service-card">
+          <img src="otros.png" alt="Otros" class="card-img" />
+        </div>
+      </div>
+    </section>
+    <section class="cert-section">
+      <h2 class="cert-title">CERTIFICACIONES</h2>
+
+      <div class="cert-container">
+        <!-- Imagen del slide (tu captura) -->
+        <div class="cert-image-wrapper">
+          <img src="slide.png" alt="Certificaciones" class="cert-image" />
+        </div>
+      </div>
+    </section>
+    <section id="contacto" class="contact-section">
+      <h2 class="contact-title">CONTACTO</h2>
+
+      <form class="contact-form">
+        <!-- FILA 1 -->
+        <div class="row">
+          <div class="field">
+            <label>Nombres</label>
+            <input type="text" />
+          </div>
+
+          <div class="field">
+            <label>Apellidos</label>
+            <input type="text" />
+          </div>
+
+          <div class="field">
+            <label>Empresa</label>
+            <input type="text" />
+          </div>
+        </div>
+
+        <!-- FILA 2 -->
+        <div class="row">
+          <div class="field">
+            <label>Cargo</label>
+            <input type="text" />
+          </div>
+
+          <div class="field">
+            <label>Teléfono</label>
+            <input type="text" />
+          </div>
+
+          <div class="field">
+            <label>E-mail</label>
+            <input type="email" />
+          </div>
+        </div>
+
+        <!-- MENSAJE -->
+        <div class="field message-field">
+          <label>Mensaje</label>
+          <textarea></textarea>
+        </div>
+
+        <!-- BOTÓN -->
+        <div class="button-wrapper">
+          <button type="submit">ENVIAR</button>
+        </div>
+      </form>
+    </section>
+    <!-- Card Container -->
+    <!-- <div class="card-container">
 			<div class="card">
 				<img src="/building.svg" alt="Icono de Clientes" class="card-icon" />
 				<h3 class="card-title">NUESTROS CLIENTES</h3>
@@ -33,105 +137,326 @@ import Card from '../components/Card.astro';
 				<img src="/newspaper.svg" alt="Icono de Noticias" class="card-icon" />
 				<h3 class="card-title">NOTICIAS Y ACTUALIDAD</h3>
 			</div>
-		</div>
-	</main>
-	
-	
+		</div> -->
+  </main>
 </Layout>
 
 <style>
-/* Contenedor Principal (main) */
-.main-content {
-  width: 100%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Video Container */
-.video-container {
-  width: 100%;
-  max-width: 2400px;
-  padding-bottom: 56.25%;
-  position: relative;
-  background-color: #f9f9f9;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px; /* Espacio entre el video y las cards */
-}
-
-.video-container .video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  
-}
-
-/* Contenedor de las Cards */
-.card-container {
-	padding:20px;
-  margin-bottom: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  width: 100%;
-  max-width: 1200px;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-/* Estilo para cada Card */
-.card {
-  flex: 1;
-  min-width: 250px;
-  background-color: #f9f9f9;
-  border: 2px solid #006400;
-  border-radius: 1rem;
-  padding: 2.5rem;
-  text-align: center;
-}
-
-
-
-/* Icono de la Card */
-.card-icon {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 15px;
-}
-
-/* Título de la Card */
-.card-title {
-  font-size: 1rem;
-  color: #006400;
-  font-weight: 600;
-  font-family: 'Arial', sans-serif;
-}
-
-/* Responsividad */
-@media (max-width: 768px) {
-  .card-container {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .card {
+  /* Contenedor Principal (main) */
+  .main-content {
     width: 100%;
-    max-width: none;
-    min-width: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
+  /* Video Container */
+  .video-container {
+    width: 100%;
+    max-width: 2400px;
+    padding-bottom: 56.25%;
+    position: relative;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Espacio entre el video y las cards */
+  }
+
+  .video-container .video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Contenedor de las Cards */
+  .card-container {
+    padding: 20px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    max-width: 1200px;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  /* Estilo para cada Card */
+  .card {
+    flex: 1;
+    min-width: 250px;
+    background-color: #f9f9f9;
+    border: 2px solid #006400;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    text-align: center;
+  }
+
+  /* Icono de la Card */
   .card-icon {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
   }
 
+  /* Título de la Card */
   .card-title {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    color: #006400;
+    font-weight: 600;
+    font-family: "Arial", sans-serif;
   }
-}
+  .labs-section {
+    width: 100%;
+    padding: 60px 20px;
+    text-align: center;
+    font-family: sans-serif;
+    color: #006400;
+  }
 
+  .labs-title {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 50px;
+  }
+
+  /* LOGOS LADO A LADO */
+  .logos-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px;
+  }
+
+  /* LASSER BLOCK */
+  .lasser-block {
+    max-width: 600px;
+  }
+
+  .lasser-img {
+    height: 140px;
+    object-fit: contain;
+  }
+
+  /* LÍNEAS VERDES */
+  .green-line {
+    width: 100%;
+    height: 4px;
+    background-color: #006400;
+    margin: 25px auto;
+  }
+
+  /* TEXTO */
+  .lasser-text {
+    font-size: 20px;
+    line-height: 1.5;
+    max-width: 550px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* JALLAVET */
+  .jallavet-img {
+    height: 140px;
+    object-fit: contain;
+  }
+  .services-section {
+    width: 100%;
+    padding: 60px 20px;
+    text-align: center;
+    font-family: sans-serif;
+  }
+
+  .services-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #006400;
+    margin-bottom: 50px;
+  }
+
+  /* GRID 3 COLUMNAS */
+  .services-grid {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+  }
+
+  /* CARD */
+  .service-card {
+    width: 320px;
+    height: 500px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantiene rectangular y llena el card */
+  }
+  .cert-section {
+    width: 100%;
+    padding: 60px 20px;
+    text-align: center;
+    font-family: sans-serif;
+  }
+
+  .cert-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #006400;
+    margin-bottom: 40px;
+  }
+
+  /* CONTENEDOR CENTRAL */
+  .cert-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+
+  /* FLECHAS */
+  .arrow span {
+    font-size: 40px;
+    font-weight: bold;
+    color: #006400;
+    display: inline-block;
+    border: 3px solid #006400;
+    width: 55px;
+    height: 55px;
+    line-height: 48px;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  /* IMAGEN CENTRAL */
+  .cert-image-wrapper {
+    width: 850px; /* ajusta según necesites */
+  }
+
+  .cert-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
+  }
+  .contact-section {
+    width: 100%;
+    padding: 60px 20px;
+    font-family: sans-serif;
+    color: #006400;
+  }
+
+  .contact-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 50px;
+  }
+
+  /* FORMULARIO */
+  .contact-form {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* FILAS */
+  .row {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  /* CAMPOS */
+  .field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .field label {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #444;
+  }
+
+  .field input,
+  .field textarea {
+    border: none;
+    border-bottom: 2px solid #006400;
+    padding: 5px 0;
+    font-size: 16px;
+    outline: none;
+    background: transparent;
+  }
+
+  .field textarea {
+    height: 120px;
+    resize: none;
+  }
+
+  .message-field {
+    margin-bottom: 40px;
+  }
+
+  /* BOTÓN */
+  .button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  button {
+    background: #006400;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 20px;
+    font-weight: 800;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+
+  button:hover {
+    background: #004d00;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .logos-container {
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .lasser-block,
+    .jallavet-block {
+      text-align: center;
+    }
+  }
+  /* Responsividad */
+  @media (max-width: 768px) {
+    .card-container {
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: none;
+      min-width: auto;
+    }
+
+    .card-icon {
+      width: 50px;
+      height: 50px;
+    }
+
+    .card-title {
+      font-size: 0.9rem;
+    }
+  }
 </style>
