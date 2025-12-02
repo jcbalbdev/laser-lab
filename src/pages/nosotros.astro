@@ -1,47 +1,215 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import BloqueInformativo from '../components/BloqueInformativo.astro';
-import BloqInfoDos from '../components/BloqInfoDos.astro';
-import BloqInfoTres from '../components/BloqInfoTres.astro';
-import BloqInfoCuatro from '../components/BloqInfoCuatro.astro';
-
+import Layout from "../layouts/Layout.astro";
+import BloqueInformativo from "../components/BloqueInformativo.astro";
+import BloqInfoDos from "../components/BloqInfoDos.astro";
+import BloqInfoTres from "../components/BloqInfoTres.astro";
+import BloqInfoCuatro from "../components/BloqInfoCuatro.astro";
 ---
 
 <Layout title="Laboratorio Laser - Nosotros">
-	<main class="main-content">
-		
-    <BloqueInformativo title='¿QUIÉNES SOMOS?' puno='Laboratorio Serológico Lasser es una compañía sólida, orgullosamente peruana con más de 17 años de experiencia en asistencia y asesoría profesional a la industria avícola, porcina y agropecuaria, brindando un servicio exclusivo y personalizado a nuestros clientes, asegurándonos que reciban la ayuda oportuna y especializada que se merecen y demandan.'  pdos='Nuestro objetivo es brindar un diagnóstico oportuno, para una mejor prevención y tratamiento de enfermedades que repercutan en el resultado productivo y por ende económico de cada empresa, brindándoles asimismo confiabilidad, confidencialidad y rapidez.'  ptres='Laboratorio Serológico Lasser está dedicado a mejorar continuamente la calidad de sus servicios, ofreciendo a nuestros clientes resultados y asesoría de manera oportuna, estamos comprometidos social y económicamente con el desarrollo del país y en armonía con el medio ambiente; orientados hacia la obtención de logros rentables. Contamos con un recurso humano altamente calificado y comprometido a solucionar los problemas existentes en el campo, contando con las exigencias del actual avance científico, para satisfacer las necesidades de nuestros clientes.'  />
+  <main class="main-content">
+    <section class="about-section">
+      <div class="mv-slide-wrapper">
+        <img
+          src="equiponosotros.png"
+          alt="Galería institucional"
+          class="slide-img"
+        />
+      </div>
+      <!-- CAPTURA QUE INCLUYE LOS DOS LOGOS + LÍNEA VERDE -->
+      <div class="about-header">
+        <img
+          src="nosotroslogos.png"
+          alt="Lasser y Jallavet"
+          class="about-capture"
+        />
+      </div>
 
-    <BloqInfoDos huno='MISIÓN' puno='Brindar un servicio de diagnóstico especializado, rápido, certero y confiable, utilizando métodos basados en estándares internacionales realizados por un staff de profesionales altamente calificados y con muchos años de experiencia al servicio de la industria avícola, porcina y agropecuaria; contribuyendo al mejoramiento y calidad de vida de la comunidad.' hdos='VISIÓN' pdos='Ser un laboratorio de diagnóstico reconocido a nivel nacional e internacional por su tecnología innovadora, excelencia en sus servicios y altos estándares de calidad.' />
- 
-    
-    <BloqInfoTres title='PREMIOS Y RECONOCIMIENTOS'/>
+      <!-- TEXTO INFORMATIVO -->
+      <div class="about-text">
+        <p>
+          Laboratorio Serológico Lasser es una compañía sólida, orgullosamente
+          peruana con más de 17 años de experiencia en asistencia y asesoría
+          profesional a la industria avícola, porcina y agropecuaria, brindando
+          un servicio exclusivo y personalizado a nuestros clientes,
+          asegurándonos que reciban la ayuda oportuna y especializada que se
+          merecen y demandan.
+        </p>
 
-    <BloqInfoCuatro titulo='PUBLICACIONES' subtone='Título de publicación' textuno='Autores'/>
+        <p>
+          Nuestro objetivo es brindar un diagnóstico oportuno, para una mejor
+          prevención y tratamiento de enfermedades que repercutan en el
+          resultado productivo y por ende económico de cada empresa,
+          brindándoles asimismo confiabilidad, confidencialidad y rapidez.
+        </p>
 
-    
+        <p>
+          Laboratorio Serológico Lasser está dedicado a mejorar continuamente la
+          calidad de sus servicios, ofreciendo a nuestros clientes resultados y
+          asesoría de manera oportuna, estamos comprometidos social y
+          económicamente con el desarrollo del país y en armonía con el medio
+          ambiente; orientados hacia la obtención de logros rentables. Contamos
+          con un recurso humano altamente calificado y comprometido a solucionar
+          los problemas existentes en el campo, contando con las exigencias del
+          actual avance científico, para satisfacer las necesidades de nuestros
+          clientes.
+        </p>
+      </div>
+    </section>
+    <section class="mv-section">
+      <!-- 1. CAPTURA DE VIDEO -->
+      <div class="mv-video">
+        <img src="video.png" alt="Video institucional" class="video-img" />
+      </div>
 
-    
-    
-	</main>
-	
-	
-	
+      <!-- 2. MISION Y VISION -->
+      <div class="mv-columns">
+        <div class="mv-box">
+          <h3>MISIÓN</h3>
+          <p>
+            Brindar un servicio de diagnóstico especializado, rápido, certero y
+            confiable, utilizando métodos basados en estrictos estándares
+            internacionales realizados por un staff de profesionales altamente
+            entrenados y con muchos años de experiencia en el rubro de la
+            industria avícola, porcina y agropecuaria; contribuyendo al
+            mejoramiento y calidad de vida de la comunidad.
+          </p>
+        </div>
+
+        <div class="mv-box">
+          <h3>VISIÓN</h3>
+          <p>
+            Ser un laboratorio de diagnósticos reconocido a nivel nacional e
+            internacional por sus tecnologías innovadoras, excelencia en su
+            servicio y altos estándares de calidad.
+          </p>
+        </div>
+      </div>
+
+      <!-- 3. "SLIDE" PERO COMO UNA SOLA IMAGEN -->
+      <div class="mv-slide-wrapper">
+        <img
+          src="slidenosotros.png"
+          alt="Galería institucional"
+          class="slide-img"
+        />
+      </div>
+    </section>
+  </main>
 </Layout>
 
 <style>
-/* Contenedor Principal (main) */
-.main-content {
-  width: 100%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  /* Contenedor Principal (main) */
+  .main-content {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .about-section {
+    width: 100%;
+    padding: 60px 20px;
+    font-family: sans-serif;
+    color: #006400; /* verde oscuro */
+  }
 
+  .about-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
 
+  .about-capture {
+    width: 700px; /* ajusta según tu imagen */
+    max-width: 100%;
+    object-fit: contain;
+  }
 
+  .about-text {
+    max-width: 1100px;
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 1.7;
+    text-align: left; /* como en la imagen */
+  }
 
+  .about-text p {
+    margin-bottom: 30px;
+  }
+  .mv-section {
+    width: 100%;
+    padding: 60px 20px;
+    font-family: sans-serif;
+    color: #006400;
+    text-align: center;
+  }
 
+  /* VIDEO (CAPTURA) */
+  .mv-video {
+    margin-bottom: 40px;
+  }
 
+  .video-img {
+    width: 900px;
+    max-width: 100%;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* MISION / VISION */
+  .mv-columns {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin: 50px auto;
+    max-width: 1100px;
+  }
+
+  .mv-box {
+    flex: 1;
+    text-align: center;
+  }
+
+  .mv-box h3 {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 20px;
+  }
+
+  .mv-box p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+
+  /* SLIDE (SOLO UNA IMAGEN) */
+  .mv-slide-wrapper {
+    margin: 50px auto 30px;
+  }
+
+  .slide-img {
+    width: 90%; /* Ajusta tamaño si deseas */
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 4px;
+  }
+
+  /* MINI THUMBS */
+  .mv-thumbs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .mv-thumbs img {
+    width: 70px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #006400;
+  }
 </style>
