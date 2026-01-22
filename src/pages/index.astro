@@ -54,7 +54,7 @@ import Card from "../components/Card.astro";
 
       <div class="services-grid">
         <!-- CARD 1 - AVES -->
-        <div class="service-card">
+        <a href="/servicios" class="service-card">
           <img src="aves.png" alt="Aves" class="card-img" />
           <div class="overlay"></div>
           <div class="content-wrapper">
@@ -67,10 +67,10 @@ import Card from "../components/Card.astro";
               <li>PARASITOLOGÍA</li>
             </ul>
           </div>
-        </div>
+        </a>
 
         <!-- CARD 2 - PORCINOS -->
-        <div class="service-card">
+        <a href="/servicios" class="service-card">
           <img src="porcinos.png" alt="Porcinos" class="card-img" />
           <div class="overlay"></div>
           <div class="content-wrapper">
@@ -83,10 +83,10 @@ import Card from "../components/Card.astro";
               <li>PARASITOLOGÍA</li>
             </ul>
           </div>
-        </div>
+        </a>
 
         <!-- CARD 3 - OTROS -->
-        <div class="service-card">
+        <a href="/servicios" class="service-card">
           <img src="otros.png" alt="Otros" class="card-img" />
           <div class="overlay"></div>
           <div class="content-wrapper">
@@ -98,7 +98,7 @@ import Card from "../components/Card.astro";
               <li>PRUEBAS DE SENSIBILIDAD DE ANTIMICROBIANOS</li>
             </ul>
           </div>
-        </div>
+        </a>
       </div>
     </section>
     <section class="cert-section">
@@ -348,12 +348,14 @@ import Card from "../components/Card.astro";
 
   /* CARD */
   .service-card {
+    display: block; /* Ensure anchor behaves like block */
     width: 320px;
     height: 500px;
     border-radius: 4px;
     overflow: hidden;
     position: relative; /* Para posicionar el overlay y contenido */
     cursor: pointer;
+    text-decoration: none; /* Remove underline */
   }
 
   .card-img {
