@@ -11,7 +11,48 @@ import logoJallavet from "/src/assets/logo-jallavet.png";
     </div>
 
     <div class="social">
-      <img src="/redessociales.png" alt="Lasser" />
+      <!-- Facebook -->
+      <a href="#" target="_blank" rel="noopener noreferrer">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02z"
+          ></path>
+        </svg>
+      </a>
+      <!-- Instagram -->
+      <a href="#" target="_blank" rel="noopener noreferrer">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 3.8 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.8-3.8V7.6A3.6 3.6 0 0 0 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3z"
+          ></path>
+        </svg>
+      </a>
+      <!-- LinkedIn -->
+      <a href="#" target="_blank" rel="noopener noreferrer">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-1.41 0-2.43.98-2.83 1.83V10.15h-3.2v8.35h3.2v-4.66a2.08 2.08 0 0 1 2.08-2.08c1.03 0 1.87.84 1.87 2.08v4.66H18.5M6.5 7.03A1.5 1.5 0 1 1 3.5 7.03A1.5 1.5 0 1 1 6.5 7.03M4.9 18.5h3.2v-8.35H4.9v8.35z"
+          ></path>
+        </svg>
+      </a>
     </div>
   </div>
 
@@ -24,9 +65,9 @@ import logoJallavet from "/src/assets/logo-jallavet.png";
     <div class="dropdown">
       <a href="/servicios">SERVICIOS</a>
       <div class="dropdown-menu">
-        <a href="/">AVES</a>
-        <a href="/">PORCINOS</a>
-        <a href="/">OTROS</a>
+        <a href="/servicios">AVES</a>
+        <a href="/servicios">PORCINOS</a>
+        <a href="/servicios">OTROS</a>
       </div>
     </div>
 
@@ -34,8 +75,12 @@ import logoJallavet from "/src/assets/logo-jallavet.png";
     <div class="dropdown">
       <span>PUBLICACIONES</span>
       <div class="dropdown-menu">
-        <a href="/">NOTICIAS</a>
-        <a href="/">ARTÍCULOS ACADÉMICOS</a>
+        <a
+          href="javascript:void(0)"
+          style="cursor: default; pointer-events: none; opacity: 0.6;"
+          >NOTICIAS</a
+        >
+        <a href="/publicaciones">ARTÍCULOS ACADÉMICOS</a>
       </div>
     </div>
 
@@ -73,14 +118,16 @@ import logoJallavet from "/src/assets/logo-jallavet.png";
 
   .social {
     display: flex;
-    gap: 25px;
+    gap: 15px;
     font-size: 28px;
+    align-items: center;
   }
 
   .social a {
     color: white;
     text-decoration: none;
     transition: 0.3s;
+    display: flex; /* Fix vertical alignment for SVGs */
   }
 
   .social a:hover {
@@ -168,11 +215,18 @@ import logoJallavet from "/src/assets/logo-jallavet.png";
     padding: 10px 0;
     font-weight: bold;
     transition: 0.2s ease;
+    white-space: nowrap; /* Prevent breaking if names are long */
   }
 
   .dropdown-menu a:hover {
     color: #008000;
     text-decoration: underline;
+  }
+
+  /* Disable hover effect for inactive links if needed explicitly, though pointer-events:none handles it interaction-wise */
+  .dropdown-menu a[href^="javascript"]:hover {
+    text-decoration: none;
+    color: #004400;
   }
 
   /* Fix: Remove the white underline from the main nav for these sub-links */
