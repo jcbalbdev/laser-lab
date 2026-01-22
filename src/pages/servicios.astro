@@ -9,7 +9,11 @@ import NavInterno from "../components/NavInterno.astro";
     <!-- <Bannerimagenfull/>
     <NavInterno/> -->
     <section class="tabs-section">
-      <img src="video.png" alt="Video institucional" class="video-img" />
+      <img
+        src="banner_servicios.png"
+        alt="Video institucional"
+        class="video-img"
+      />
       <!-- TABS -->
       <div class="tabs">
         <button class="tab active" data-target="aves">AVES</button>
@@ -48,15 +52,17 @@ import NavInterno from "../components/NavInterno.astro";
         <!-- PORCINOS -->
         <div id="porcinos" class="tab-content">
           <h2>MICROBIOLOGÍA</h2>
-          <ul>
-            <li><strong>+ PRUEBAS ESPECÍFICAS</strong></li>
-            <li>
-              - <strong>Diagnóstico PCR:</strong> Virus porcinos, bacterias específicas.
-            </li>
-            <li>
-              - <strong>SEROLOGÍA:</strong> ELISA, AGID, screening rápido.
-            </li>
-          </ul>
+          <div class="microbiologia-content" style="display: none;">
+            <ul>
+              <li><strong>+ PRUEBAS ESPECÍFICAS</strong></li>
+              <li>
+                - <strong>Diagnóstico PCR:</strong> Virus porcinos, bacterias específicas.
+              </li>
+              <li>
+                - <strong>SEROLOGÍA:</strong> ELISA, AGID, screening rápido
+              </li>
+            </ul>
+          </div>
 
           <h2>CONTROL SANITARIO</h2>
           <p>
@@ -168,4 +174,12 @@ import NavInterno from "../components/NavInterno.astro";
       document.getElementById(btn.dataset.target).classList.add("active");
     });
   });
+
+  document
+    .getElementById("microbiologia")
+    .addEventListener("click", function () {
+      const content = document.querySelector(".microbiologia-content");
+      content.style.display =
+        content.style.display === "none" ? "block" : "none";
+    });
 </script>

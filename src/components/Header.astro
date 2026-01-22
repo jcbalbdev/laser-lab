@@ -137,15 +137,28 @@ import logoJallavet from "/src/assets/logo-jallavet.png";
     top: 40px;
     left: 50%;
     transform: translateX(-50%);
-    display: none;
+    display: flex;
     flex-direction: column;
     background: rgba(255, 255, 255, 0.9);
     padding: 20px 40px;
     backdrop-filter: blur(4px);
+
+    /* Animation state: Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+
+    /* Transition prevents immediate disappearance */
+    transition:
+      opacity 0.3s ease-in-out,
+      visibility 0.3s ease-in-out;
+    transition-delay: 0.2s; /* Kept visible for 1.5s after mouse leaves */
   }
 
+  /* Show menu on hover */
   .dropdown:hover .dropdown-menu {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s; /* Appear immediately */
   }
 
   .dropdown-menu a {
@@ -154,16 +167,17 @@ import logoJallavet from "/src/assets/logo-jallavet.png";
     text-align: center;
     padding: 10px 0;
     font-weight: bold;
-    border-bottom: 1px solid #004400;
     transition: 0.2s ease;
-  }
-
-  .dropdown-menu a:last-child {
-    border-bottom: none;
   }
 
   .dropdown-menu a:hover {
     color: #008000;
+    text-decoration: underline;
+  }
+
+  /* Fix: Remove the white underline from the main nav for these sub-links */
+  .dropdown-menu a::after {
+    display: none;
   }
 
   /* RESPONSIVE */
