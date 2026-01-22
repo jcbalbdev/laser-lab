@@ -19,23 +19,33 @@ import Card from "../components/Card.astro";
 
       <div class="logos-container">
         <!-- Logo Lasser -->
-        <div class="lasser-block">
+        <div class="lasser-block logo-block">
           <img src="Lasser.png" alt="Lasser" class="lasser-img" />
 
-          <div class="green-line"></div>
-
-          <p class="lasser-text">
-            Lasser Laboratorios Veterinarios es una empresa peruana dedicada a
-            servicios para el sector pecuario. Contamos con el reconocimiento de
-            las instituciones nacionales e internacionales más relevantes
-          </p>
-
-          <div class="green-line"></div>
+          <div class="info-container">
+            <div class="green-line"></div>
+            <p class="info-text">
+              Lasser Laboratorios Veterinarios es una empresa peruana dedicada a
+              servicios para el sector pecuario. Contamos con el reconocimiento
+              de las instituciones nacionales e internacionales más relevantes
+            </p>
+            <div class="green-line"></div>
+          </div>
         </div>
 
         <!-- Logo Jallavet -->
-        <div class="jallavet-block">
+        <div class="jallavet-block logo-block">
           <img src="Jllavet.png" alt="Jallavet" class="jallavet-img" />
+
+          <div class="info-container">
+            <div class="green-line"></div>
+            <p class="info-text">
+              JALLAVET S.A.C. es una empresa dedicada a brindar soluciones
+              integrales en salud animal, comprometidos con la calidad y la
+              innovación en cada uno de nuestros servicios.
+            </p>
+            <div class="green-line"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -46,16 +56,48 @@ import Card from "../components/Card.astro";
         <!-- CARD 1 - AVES -->
         <div class="service-card">
           <img src="aves.png" alt="Aves" class="card-img" />
+          <div class="overlay"></div>
+          <div class="content-wrapper">
+            <h3 class="card-title-overlay">AVES</h3>
+            <ul class="options-list">
+              <li>MICROBIOLOGÍA</li>
+              <li>SEROLOGÍA</li>
+              <li>BIOLOGÍA MOLECULAR</li>
+              <li>GENÓMICA Y BIOINFORMÁTICA</li>
+              <li>PARASITOLOGÍA</li>
+            </ul>
+          </div>
         </div>
 
         <!-- CARD 2 - PORCINOS -->
         <div class="service-card">
           <img src="porcinos.png" alt="Porcinos" class="card-img" />
+          <div class="overlay"></div>
+          <div class="content-wrapper">
+            <h3 class="card-title-overlay">PORCINOS</h3>
+            <ul class="options-list">
+              <li>MICROBIOLOGÍA</li>
+              <li>SEROLOGÍA</li>
+              <li>BIOLOGÍA MOLECULAR</li>
+              <li>GENÓMICA Y BIOINFORMÁTICA</li>
+              <li>PARASITOLOGÍA</li>
+            </ul>
+          </div>
         </div>
 
         <!-- CARD 3 - OTROS -->
         <div class="service-card">
           <img src="otros.png" alt="Otros" class="card-img" />
+          <div class="overlay"></div>
+          <div class="content-wrapper">
+            <h3 class="card-title-overlay">OTROS</h3>
+            <ul class="options-list">
+              <li>PATOLOGÍA</li>
+              <li>EVALUACIÓN DE DESINFECTANTES</li>
+              <li>EVALUACIÓN FISICOQUÍMICA DEL AGUA</li>
+              <li>PRUEBAS DE SENSIBILIDAD DE ANTIMICROBIANOS</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -231,14 +273,39 @@ import Card from "../components/Card.astro";
     gap: 60px;
   }
 
-  /* LASSER BLOCK */
-  .lasser-block {
+  /* BLOCKS & HOVER EFFECT */
+  .logo-block {
     max-width: 600px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .lasser-img {
+  .info-container {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition:
+      max-height 0.5s ease,
+      opacity 0.3s ease;
+    width: 100%;
+  }
+
+  .logo-block:hover .info-container {
+    max-height: 500px; /* Suficiente para mostrar el texto */
+    opacity: 1;
+  }
+
+  .lasser-img,
+  .jallavet-img {
     height: 140px;
     object-fit: contain;
+    transition: transform 0.3s;
+  }
+
+  .logo-block:hover img {
+    transform: scale(1.05);
   }
 
   /* LÍNEAS VERDES */
@@ -250,18 +317,12 @@ import Card from "../components/Card.astro";
   }
 
   /* TEXTO */
-  .lasser-text {
+  .info-text {
     font-size: 20px;
     line-height: 1.5;
     max-width: 550px;
     margin: 0 auto;
     text-align: center;
-  }
-
-  /* JALLAVET */
-  .jallavet-img {
-    height: 140px;
-    object-fit: contain;
   }
   .services-section {
     width: 100%;
@@ -282,6 +343,7 @@ import Card from "../components/Card.astro";
     display: flex;
     justify-content: center;
     gap: 50px;
+    flex-wrap: wrap;
   }
 
   /* CARD */
@@ -290,12 +352,82 @@ import Card from "../components/Card.astro";
     height: 500px;
     border-radius: 4px;
     overflow: hidden;
+    position: relative; /* Para posicionar el overlay y contenido */
+    cursor: pointer;
   }
 
   .card-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Mantiene rectangular y llena el card */
+    object-fit: cover;
+  }
+
+  /* CAPA VERDE SEMITRANSPARENTE */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 100, 0, 0.6); /* Verde oscuro con transparencia */
+    z-index: 1;
+    pointer-events: none; /* Dejar pasar eventos si es necesario */
+  }
+
+  /* WRAPPER DEL CONTENIDO (TEXTO) */
+  .content-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+
+  /* TÍTULO (AVES, PORCINOS, OTROS) */
+  .card-title-overlay {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border-bottom: 3px solid white;
+    padding-bottom: 5px;
+  }
+
+  /* LISTA DE OPCIONES (OCULTA POR DEFECTO) */
+  .options-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+      max-height 0.5s ease,
+      opacity 0.3s ease;
+  }
+
+  /* HOVER EFFECT */
+  .service-card:hover .options-list {
+    max-height: 400px; /* Altura suficiente para mostrar la lista */
+    opacity: 1;
+  }
+
+  .options-list li {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
   }
   .cert-section {
     width: 100%;

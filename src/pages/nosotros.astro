@@ -4,58 +4,122 @@ import BloqueInformativo from "../components/BloqueInformativo.astro";
 import BloqInfoDos from "../components/BloqInfoDos.astro";
 import BloqInfoTres from "../components/BloqInfoTres.astro";
 import BloqInfoCuatro from "../components/BloqInfoCuatro.astro";
+
+const galleryImages = [
+  "/galeria/DSCF1313.jpeg",
+  "/galeria/DSCF1355.jpeg",
+  "/galeria/DSCF1358.jpeg",
+  "/galeria/DSCF1362.jpeg",
+  "/galeria/DSCF1372.jpeg",
+  "/galeria/DSCF1380.jpeg",
+  "/galeria/DSCF1389.jpeg",
+  "/galeria/DSCF1397.jpeg",
+  "/galeria/DSCF1402.jpeg",
+  "/galeria/DSCF1431.jpeg",
+  "/galeria/DSCF1435.jpeg",
+];
 ---
 
 <Layout title="Laboratorio Laser - Nosotros">
   <main class="main-content">
+    <div class="full-width-banner">
+      <img
+        src="banner-nosotros.jpeg"
+        alt="Galería institucional"
+        class="banner-img"
+      />
+    </div>
     <section class="about-section">
-      <div class="mv-slide-wrapper">
-        <img
-          src="equiponosotros.png"
-          alt="Galería institucional"
-          class="slide-img"
-        />
-      </div>
-      <!-- CAPTURA QUE INCLUYE LOS DOS LOGOS + LÍNEA VERDE -->
-      <div class="about-header">
-        <img
-          src="nosotroslogos.png"
-          alt="Lasser y Jallavet"
-          class="about-capture"
-        />
+      <!-- TABS LOGOS -->
+      <div class="tabs-container">
+        <div class="tab active" data-target="lasser">
+          <img src="Lasser.png" alt="Lasser" class="tab-logo" />
+        </div>
+        <div class="tab" data-target="jallavet">
+          <img src="Jllavet.png" alt="Jallavet" class="tab-logo" />
+        </div>
       </div>
 
-      <!-- TEXTO INFORMATIVO -->
-      <div class="about-text">
-        <p>
-          Laboratorio Serológico Lasser es una compañía sólida, orgullosamente
-          peruana con más de 17 años de experiencia en asistencia y asesoría
-          profesional a la industria avícola, porcina y agropecuaria, brindando
-          un servicio exclusivo y personalizado a nuestros clientes,
-          asegurándonos que reciban la ayuda oportuna y especializada que se
-          merecen y demandan.
-        </p>
+      <!-- LINEA SEPARADORA DINAMICA (OPCIONAL O INTEGRADA EN TABS) -->
 
-        <p>
-          Nuestro objetivo es brindar un diagnóstico oportuno, para una mejor
-          prevención y tratamiento de enfermedades que repercutan en el
-          resultado productivo y por ende económico de cada empresa,
-          brindándoles asimismo confiabilidad, confidencialidad y rapidez.
-        </p>
+      <!-- CONTENIDOS -->
+      <div class="content-container">
+        <!-- LASSER INFO -->
+        <div id="lasser" class="tab-content active">
+          <p>
+            Laboratorio Serológico Lasser es una compañía sólida, orgullosamente
+            peruana con más de 17 años de experiencia en asistencia y asesoría
+            profesional a la industria avícola, porcina y agropecuaria,
+            brindando un servicio exclusivo y personalizado a nuestros clientes,
+            asegurándonos que reciban la ayuda oportuna y especializada que se
+            merecen y demandan.
+          </p>
+          <p>
+            Nuestro objetivo es brindar un diagnóstico oportuno, para una mejor
+            prevención y tratamiento de enfermedades que repercutan en el
+            resultado productivo y por ende económico de cada empresa,
+            brindándoles asimismo confiabilidad, confidencialidad y rapidez.
+          </p>
+          <p>
+            Laboratorio Serológico Lasser está dedicado a mejorar continuamente
+            la calidad de sus servicios, ofreciendo a nuestros clientes
+            resultados y asesoría de manera oportuna, estamos comprometidos
+            social y económicamente con el desarrollo del país y en armonía con
+            el medio ambiente; orientados hacia la obtención de logros
+            rentables. Contamos con un recurso humano altamente calificado y
+            comprometido a solucionar los problemas existentes en el campo,
+            contando con las exigencias del actual avance científico, para
+            satisfacer las necesidades de nuestros clientes.
+          </p>
+        </div>
 
-        <p>
-          Laboratorio Serológico Lasser está dedicado a mejorar continuamente la
-          calidad de sus servicios, ofreciendo a nuestros clientes resultados y
-          asesoría de manera oportuna, estamos comprometidos social y
-          económicamente con el desarrollo del país y en armonía con el medio
-          ambiente; orientados hacia la obtención de logros rentables. Contamos
-          con un recurso humano altamente calificado y comprometido a solucionar
-          los problemas existentes en el campo, contando con las exigencias del
-          actual avance científico, para satisfacer las necesidades de nuestros
-          clientes.
-        </p>
+        <!-- JALLAVET INFO -->
+        <div id="jallavet" class="tab-content">
+          <p>
+            JALLAVET S.A.C. se consolida como un referente en el sector de la
+            salud animal, dedicados a proporcionar soluciones diagnósticas de
+            precisión y biotecnología avanzada. Nuestra misión es apoyar el
+            crecimiento sostenible de la industria pecuaria a través de
+            servicios de análisis rigurosos y tecnología de vanguardia.
+          </p>
+          <p>
+            Nos especializamos en el monitoreo sanitario y la detección temprana
+            de patógenos, permitiendo a nuestros socios estratégicos tomar
+            decisiones informadas para optimizar su producción. La innovación
+            constante y el cumplimiento de normativas internacionales avalan
+            nuestra trayectoria.
+          </p>
+          <p>
+            Contamos con un equipo multidisciplinario de profesionales
+            apasionados por la sanidad animal, quienes trabajan incansablemente
+            para ofrecer un soporte técnico integral. En Jallavet, creemos que
+            la calidad diagnóstica es el pilar fundamental para la seguridad
+            alimentaria y el bienestar animal en nuestro país.
+          </p>
+        </div>
       </div>
     </section>
+
+    <script>
+      const tabs = document.querySelectorAll(".tab");
+      const contents = document.querySelectorAll(".tab-content");
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          // Remove active class from all
+          tabs.forEach((t) => t.classList.remove("active"));
+          contents.forEach((c) => c.classList.remove("active"));
+
+          // Add active class to clicked
+          tab.classList.add("active");
+          const targetId = tab.getAttribute("data-target");
+          const targetContent = document.getElementById(targetId);
+          if (targetContent) {
+            targetContent.classList.add("active");
+          }
+        });
+      });
+    </script>
     <section class="mv-section">
       <!-- 1. CAPTURA DE VIDEO -->
       <div class="mv-video">
@@ -86,15 +150,117 @@ import BloqInfoCuatro from "../components/BloqInfoCuatro.astro";
         </div>
       </div>
 
-      <!-- 3. "SLIDE" PERO COMO UNA SOLA IMAGEN -->
-      <div class="mv-slide-wrapper">
-        <img
-          src="slidenosotros.png"
-          alt="Galería institucional"
-          class="slide-img"
-        />
+      <!-- 3. GALERÍA SLIDER -->
+      <div class="gallery-container">
+        <!-- Main Viewer -->
+        <div class="main-viewer">
+          <button id="prevBtn" class="nav-btn prev">❮</button>
+          <img
+            id="currentImage"
+            src={galleryImages[0]}
+            alt="Galería Nosotros"
+            class="viewer-img"
+          />
+          <button id="nextBtn" class="nav-btn next">❯</button>
+        </div>
+
+        <!-- Thumbnails -->
+        <div class="thumbnails-track">
+          {
+            galleryImages.map((img, index) => (
+              <img
+                src={img}
+                alt={`Thumb ${index}`}
+                class={`thumb ${index === 0 ? "active" : ""}`}
+                data-index={index}
+              />
+            ))
+          }
+        </div>
       </div>
     </section>
+
+    <script define:vars={{ galleryImages }}>
+      // Client-side Logic for Slider
+      let currentIndex = 0;
+      const totalImages = galleryImages.length;
+      let slideInterval;
+      let fadeTimeout; // Variable para controlar el timeout de la transición
+
+      const currentImgEl = document.getElementById("currentImage");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const thumbs = document.querySelectorAll(".thumb");
+
+      function startAutoPlay() {
+        slideInterval = setInterval(() => {
+          nextImage(false);
+        }, 4000);
+      }
+
+      function stopAutoPlay() {
+        clearInterval(slideInterval);
+      }
+
+      function resetAutoPlay() {
+        stopAutoPlay();
+        startAutoPlay();
+      }
+
+      function updateGallery(index) {
+        currentIndex = index;
+
+        // Clear existing timeout to prevent overlap on fast clicks
+        if (fadeTimeout) clearTimeout(fadeTimeout);
+
+        // Update Main Image with fast fade effect
+        currentImgEl.style.opacity = 0;
+
+        fadeTimeout = setTimeout(() => {
+          currentImgEl.src = galleryImages[currentIndex];
+          currentImgEl.style.opacity = 1;
+        }, 150); // Matches CSS transition
+
+        // Update Thumbs Instantly
+        thumbs.forEach((t) => t.classList.remove("active"));
+        if (thumbs[currentIndex]) {
+          thumbs[currentIndex].classList.add("active");
+          // Instant scroll to keep it sync
+          thumbs[currentIndex].scrollIntoView({
+            behavior: "auto",
+            block: "nearest",
+            inline: "center",
+          });
+        }
+      }
+
+      function nextImage(manual = true) {
+        let newIndex = (currentIndex + 1) % totalImages;
+        updateGallery(newIndex);
+        if (manual) resetAutoPlay();
+      }
+
+      function prevImage() {
+        let newIndex = (currentIndex - 1 + totalImages) % totalImages;
+        updateGallery(newIndex);
+        resetAutoPlay();
+      }
+
+      // Listeners
+      nextBtn.addEventListener("click", () => nextImage(true));
+      prevBtn.addEventListener("click", prevImage);
+
+      thumbs.forEach((t) => {
+        t.addEventListener("click", (e) => {
+          const idx = parseInt(e.target.dataset.index);
+          updateGallery(idx);
+          resetAutoPlay();
+        });
+      });
+
+      // Start Auto Play
+      startAutoPlay();
+    </script>
   </main>
 </Layout>
 
@@ -114,27 +280,74 @@ import BloqInfoCuatro from "../components/BloqInfoCuatro.astro";
     color: #006400; /* verde oscuro */
   }
 
-  .about-header {
-    text-align: center;
+  /* TABS CONTAINER */
+  .tabs-container {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
     margin-bottom: 40px;
+    border-bottom: 4px solid transparent; /* Reserva espacio si lo quieres */
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
   }
 
-  .about-capture {
-    width: 700px; /* ajusta según tu imagen */
-    max-width: 100%;
+  /* TAB */
+  .tab {
+    cursor: pointer;
+    padding-bottom: 20px;
+    border-bottom: 4px solid transparent;
+    transition: all 0.3s ease;
+    opacity: 0.5;
+  }
+
+  .tab:hover {
+    opacity: 0.8;
+  }
+
+  .tab.active {
+    border-bottom: 4px solid #006400; /* Línea verde activa */
+    opacity: 1;
+  }
+
+  .tab-logo {
+    height: 80px;
     object-fit: contain;
   }
 
-  .about-text {
+  /* CONTENT */
+  .content-container {
     max-width: 1100px;
     margin: 0 auto;
     font-size: 20px;
     line-height: 1.7;
-    text-align: left; /* como en la imagen */
+    text-align: left;
+    position: relative;
+    min-height: 400px; /* Evita saltos bruscos de altura */
   }
 
-  .about-text p {
+  .tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .tab-content p {
     margin-bottom: 30px;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   .mv-section {
     width: 100%;
@@ -184,32 +397,135 @@ import BloqInfoCuatro from "../components/BloqInfoCuatro.astro";
     margin: 0 auto;
   }
 
-  /* SLIDE (SOLO UNA IMAGEN) */
-  .mv-slide-wrapper {
-    margin: 50px auto 30px;
+  /* SLIDER GALLERY */
+  .gallery-container {
+    max-width: 1000px;
+    margin: 60px auto 0;
+    text-align: center;
   }
 
-  .slide-img {
-    width: 90%; /* Ajusta tamaño si deseas */
-    max-width: 100%;
-    display: block;
-    margin: 0 auto;
-    border-radius: 4px;
-  }
-
-  /* MINI THUMBS */
-  .mv-thumbs {
+  /* MAIN VIEWER */
+  .main-viewer {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Altura fija para evitar saltos */
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-top: 15px;
+    align-items: center;
   }
 
-  .mv-thumbs img {
-    width: 70px;
+  .viewer-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* O cover, según prefieras recortar o no */
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  /* NAV BUTTONS */
+  .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #006400;
+    color: white;
+    border: none;
+    width: 50px;
     height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    user-select: none;
+  }
+
+  .nav-btn:hover {
+    background-color: #004d00;
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .prev {
+    left: 20px;
+  }
+  .next {
+    right: 20px;
+  }
+
+  /* THUMBNAILS */
+  .thumbnails-track {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px 5px;
+    justify-content: center; /* Centrar si son pocas */
+  }
+
+  .thumb {
+    width: 100px;
+    height: 70px;
     object-fit: cover;
     border-radius: 4px;
-    border: 1px solid #006400;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.3s;
+    border: 2px solid transparent;
+  }
+
+  .thumb:hover {
+    opacity: 1;
+  }
+
+  .thumb.active {
+    opacity: 1;
+    border-color: #006400;
+    transform: scale(1.05);
+  }
+
+  /* CUSTOM SCROLLBAR FOR THUMBS */
+  .thumbnails-track::-webkit-scrollbar {
+    height: 8px;
+  }
+  .thumbnails-track::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+  }
+  .thumbnails-track::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+  }
+
+  /* Responsive adjust */
+  @media (max-width: 768px) {
+    .main-viewer {
+      height: 300px;
+    }
+    .thumb {
+      width: 70px;
+      height: 50px;
+    }
+    .thumbnails-track {
+      justify-content: flex-start; /* Permitir scroll en móviles */
+    }
+  }
+
+  /* BANNER FULL WIDTH */
+  .full-width-banner {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    line-height: 0; /* Remove potential bottom space */
+  }
+
+  .banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
   }
 </style>
