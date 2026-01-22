@@ -1,0 +1,131 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Laboratorio Laser - Publicaciones">
+  <main class="main-content">
+    <section class="banner-section">
+      <img
+        src="banner_publicaciones.png"
+        alt="Publicaciones Banner"
+        class="banner-img"
+      />
+    </section>
+
+    <section class="publications-section">
+      <h2 class="section-title">ARTÍCULOS ACADÉMICOS</h2>
+
+      <div class="card">
+        <div class="card-image">
+          <!-- Placeholder image or the specific pig image if available. Using a generic placeholder for now as the asset was not provided, but ensuring <img> tag exists -->
+          <img src="/publicacion_cerdos.png" alt="Cerdos Glässer" />
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">
+            CONOCIMIENTOS GENÓMICOS SOBRE LA DIVERSIDAD, LA RESISTENCIA
+            ANTIMICROBIANA Y LA VIRULENCIA DE GLAESSERELLA PARASUIS EN CERDOS
+            ENFERMOS EN PERÚ
+          </h3>
+          <p class="card-text">
+            Nuestro estudio publicado en Frontiers in Microbiology aporta nueva
+            información clave sobre Glaesserella parasuis, la bacteria causante
+            de la enfermedad de Glässer, a partir de aislamientos obtenidos en
+            granjas porcinas del Perú. Mediante secuenciación completa del
+            genoma, la investigación analiza la diversidad genética, los
+            factores de virulencia y los perfiles de resistencia antimicrobiana,
+            llenando un vacío importante de datos procedentes de Sudamérica.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .main-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+  }
+
+  .banner-section {
+    width: 100%;
+  }
+
+  .banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .publications-section {
+    max-width: 1000px; /* Same max-width as servicios for consistency */
+    padding: 40px 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .section-title {
+    text-align: center;
+    color: #006400; /* Green color from image */
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+  }
+
+  .card {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin-bottom: 40px;
+  }
+
+  .card-image {
+    flex: 0 0 300px; /* Fixed width for image container */
+  }
+
+  .card-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px; /* Slight rounding if desired */
+    object-fit: cover;
+  }
+
+  .card-content {
+    flex: 1;
+  }
+
+  .card-title {
+    color: #4caf50; /* A slightly lighter green for the card title based on image? Or consistent dark green? Image looks like a lighter/vibrant green. Let's try #4CAF50 or keep #006400 matching branding. Image looks fairly matching. Let's use #4a8b4a or similar. Actually, let's stick to the branding #006400 or similar if needed. The image text looks like #4e9f3d or similar. I'll stick to a standard green. */
+    color: #2e7d32;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .card-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    text-align: justify;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .card {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card-image {
+      flex: none;
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+</style>

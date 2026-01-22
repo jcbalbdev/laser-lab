@@ -2,6 +2,288 @@
 import Layout from "../layouts/Layout.astro";
 import Bannerimagenfull from "../components/Bannerimagenfull.astro";
 import NavInterno from "../components/NavInterno.astro";
+
+const servicesData = {
+  aves: {
+    title: "AVES",
+    categories: [
+      {
+        title: "MICROBIOLOGÍA",
+        subsections: [
+          {
+            title: "CASOS CLÍNICOS",
+            items: [
+              {
+                label: "CULTIVO BACTERIANO",
+                desc: "Escherichia coli, Salmonella, Clostridium, Avibacterium, Gallibacterium, etc.",
+              },
+              {
+                label: "ANTIBIOGRAMA",
+                desc: "Aerobio, anaerobio, microaerófilo.",
+              },
+              {
+                label: "CULTIVO DE HONGOS",
+                desc: "Aspergillus, Rhizopus, Candida, etc.",
+              },
+            ],
+          },
+          {
+            title: "MONITOREO",
+            items: [
+              {
+                label: "Microbiológico de pollito bb",
+                desc: "(en planta de incubación, ingreso a granja) de microorganismos de interés.",
+              },
+              {
+                label: "Monitoreo Salmonella",
+                desc: "(planta de incubación, granja, planta de faenamiento).",
+              },
+              {
+                label: "Monitoreo microbiológico de planta de incubación",
+                desc: "(plaqueo ambiental, superficies, lavado de manos, etc.) de microorganismos de interés.",
+              },
+              {
+                label: "Microbiología de alimentos e insumos",
+                desc: "(mesófilos, coliformes, hongos, Staphylococcus, Salmonella, etc.).",
+              },
+              {
+                label: "Microbiología de agua",
+                desc: "(heterótrofos, coliformes, E. coli, Pseudomonas, hongos, etc.).",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "SEROLOGÍA",
+        subsections: [
+          {
+            title: "ELISA",
+            items: [
+              {
+                label: "Bacterias",
+                desc: "ELISA Mycoplasma gallisepticum, Mycoplasma synoviae, Salmonella, etc.",
+              },
+              {
+                label: "Virus",
+                desc: "ELISA Influenza aviar, Newcastle, Bronquitis infecciosa, Gumboro, Reovirus, Anemia aviar, etc.",
+              },
+              { label: "Micotoxinas", desc: "(varios)" },
+            ],
+          },
+          {
+            title: "INHIBICIÓN DE LA HEMAGLUTINACIÓN",
+            items: [
+              {
+                label: "Virus",
+                desc: "Virus de la Enfermedad de Newcastle, Virus de Influenza H5N2.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "BIOLOGÍA MOLECULAR",
+        subsections: [
+          {
+            title: "PCR",
+            items: [
+              {
+                label: "Bacterias",
+                desc: "PCR Mycoplasma, Avibacterium (Coriza infecciosa), Salmonella, etc.",
+              },
+              {
+                label: "Virus",
+                desc: "PCR Influenza aviar, Newcastle, Bronquitis infecciosa, Gumboro, Reovirus, Hepatitis, etc.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "GENÓMICA Y BIOINFORMÁTICA",
+        subsections: [
+          {
+            title: "AVES DE CORRAL Y PORCINOS",
+            items: [
+              {
+                label: "Bacterias",
+                desc: "Secuenciación para análisis filogenético, identificación de genotipos y/o linajes, serotipos, genes de virulencia y resistencia a antibióticos.",
+              },
+              {
+                label: "Virus",
+                desc: "Secuenciación para análisis filogenético, identificación de genotipos y/o linajes.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "PARASITOLOGÍA",
+        subsections: [
+          {
+            title: "AVES DE CORRAL",
+            items: [
+              { label: "Recuento de ooquistes de Eimeria", desc: "" },
+              { label: "Score de lesiones intestinales", desc: "" },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  porcinos: {
+    title: "PORCINOS",
+    categories: [
+      {
+        title: "MICROBIOLOGÍA",
+        subsections: [
+          {
+            title: "CASOS CLÍNICOS",
+            items: [
+              {
+                label: "Cultivo bacteriano",
+                desc: "Escherichia coli, Salmonella, Clostridium, Glaesserella parasuis, Actinobacillus pleuropneumoniae, Streptococcus, Pasteurella, Bordetella, etc.",
+              },
+              {
+                label: "Antibiograma",
+                desc: "Aerobio, anaerobio, microaerófilo.",
+              },
+            ],
+          },
+          {
+            title: "MONITOREO",
+            items: [
+              {
+                label: "Monitoreo microbiológico de instalaciones",
+                desc: "(plaqueo ambiental, superficies, lavado de manos, etc.) de microorganismos de interés.",
+              },
+              {
+                label: "Microbiología de alimentos e insumos",
+                desc: "(mesófilos, coliformes, hongos, Staphylococcus, Salmonella, etc.).",
+              },
+              {
+                label: "Microbiología de agua",
+                desc: "(heterótrofos, coliformes, E. coli, Pseudomonas, hongos, etc.).",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "SEROLOGÍA",
+        subsections: [
+          {
+            title: "ELISA",
+            items: [
+              {
+                label: "Bacterias",
+                desc: "ELISA Mycoplasma hyopneumoniae, Actinobacillus pleuropneumoniae, etc.",
+              },
+              {
+                label: "Virus",
+                desc: "ELISA PRRS, Cólera Porcino, Circovirus porcino tipo 2, Influenza tipo A, etc.",
+              },
+              { label: "Micotoxinas", desc: "(varios)" },
+            ],
+          },
+        ],
+      },
+      {
+        title: "BIOLOGÍA MOLECULAR",
+        subsections: [
+          {
+            title: "PCR",
+            items: [
+              {
+                label: "Bacterias",
+                desc: "PCR Mycoplasma, Salmonella, Glaesserella, Actinobacillus, Lawsonia, etc.",
+              },
+              {
+                label: "Virus",
+                desc: "PCR PRRS, PED, PDCoV, TGE, Cólera Porcino, Circovirus porcino tipo 2 y tipo 3, Influenza, etc.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "GENÓMICA Y BIOINFORMÁTICA",
+        subsections: [
+          {
+            title: "AVES DE CORRAL Y PORCINOS",
+            items: [
+              {
+                label: "Bacterias",
+                desc: "Secuenciación para análisis filogenético, identificación de genotipos y/o linajes, serotipos, genes de virulencia y resistencia a antibióticos.",
+              },
+              {
+                label: "Virus",
+                desc: "Secuenciación para análisis filogenético, identificación de genotipos y/o linajes.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "PARASITOLOGÍA",
+        subsections: [
+          {
+            title: "PORCINOS",
+            items: [
+              { label: "Coproparasitología", desc: "" },
+              { label: "PCR Cystoisospora suis", desc: "" },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  otros: {
+    title: "OTROS",
+    categories: [
+      {
+        title: "AVES DE CORRAL Y MAMÍFEROS",
+        subsections: [
+          {
+            title: "PATOLOGÍA",
+            items: [
+              { label: "Necropsia", desc: "" },
+              { label: "Histopatología", desc: "" },
+            ],
+          },
+          {
+            title: "EVALUACIÓN DE DESINFECTANTES",
+            items: [
+              { label: "Prueba de dilución en uso", desc: "" },
+              { label: "Prueba de corrosión", desc: "" },
+            ],
+          },
+          {
+            title: "EVALUACIÓN FISICOQUÍMICA DEL AGUA",
+            items: [
+              {
+                label: "Parámetros",
+                desc: "pH, dureza, sólidos, metales, aniones, etc.",
+              },
+            ],
+          },
+          {
+            title: "PRUEBAS DE SENSIBILIDAD DE ANTIMICROBIANOS",
+            items: [
+              { label: "Preparación de discos de antibióticos", desc: "" },
+              { label: "Prueba de potencia antibiótica", desc: "" },
+              {
+                label: "Kirby Bauer y Concentración mínima inhibitoria",
+                desc: "",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+};
 ---
 
 <Layout title="Laboratorio Laser - Servicios">
@@ -25,64 +307,131 @@ import NavInterno from "../components/NavInterno.astro";
       <div class="content">
         <!-- AVES -->
         <div id="aves" class="tab-content active">
-          <h2>MICROBIOLOGÍA</h2>
-          <ul>
-            <li><strong>+ CASOS CLÍNICOS</strong></li>
-            <li>
-              - <strong>CULTIVO BACTERIANO:</strong> Escherichia coli, Salmonella,
-              Clostridium, Avibacterium…
-            </li>
-            <li>
-              - <strong>ANTIBIOGRAMA:</strong> Aerobio, anaerobio, microaerófilo.
-            </li>
-            <li>
-              - <strong>CULTIVO DE HONGOS:</strong> Aspergillus, Rhizopus, Candida…
-            </li>
-          </ul>
-
-          <h2>MONITOREO</h2>
-
-          <h2>SEROLOGÍA</h2>
-
-          <h2>BIOLOGÍA MOLECULAR</h2>
-
-          <h2>GENÓMICA Y BIOINFORMÁTICA</h2>
+          {
+            servicesData.aves.categories.map((cat, index) => (
+              <div class="accordion-group">
+                <button
+                  class="accordion-header main-category"
+                  data-index={`aves-${index}`}
+                >
+                  {cat.title}
+                </button>
+                <div class="accordion-panel main-panel">
+                  {cat.subsections.map((sub, subIndex) => (
+                    <div class="sub-accordion">
+                      <button
+                        class="sub-accordion-header"
+                        data-subindex={`aves-${index}-${subIndex}`}
+                      >
+                        <span class="icon">+</span> {sub.title}
+                      </button>
+                      <div class="sub-accordion-panel">
+                        <ul>
+                          {sub.items.map((item) => (
+                            <li>
+                              -{" "}
+                              <strong>
+                                {item.label}
+                                {item.desc ? ":" : ""}
+                              </strong>{" "}
+                              {item.desc}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))
+          }
+          {
+            /* Legacy or placeholder for header-only sections without subsections if any */
+          }
         </div>
 
         <!-- PORCINOS -->
         <div id="porcinos" class="tab-content">
-          <h2>MICROBIOLOGÍA</h2>
-          <div class="microbiologia-content" style="display: none;">
-            <ul>
-              <li><strong>+ PRUEBAS ESPECÍFICAS</strong></li>
-              <li>
-                - <strong>Diagnóstico PCR:</strong> Virus porcinos, bacterias específicas.
-              </li>
-              <li>
-                - <strong>SEROLOGÍA:</strong> ELISA, AGID, screening rápido
-              </li>
-            </ul>
-          </div>
-
-          <h2>CONTROL SANITARIO</h2>
-          <p>
-            - Monitoreo integral de granjas.<br />- Prevención de enfermedades
-            digestivas y respiratorias.
-          </p>
+          {
+            servicesData.porcinos.categories.map((cat, index) => (
+              <div class="accordion-group">
+                <button
+                  class="accordion-header main-category"
+                  data-index={`porcinos-${index}`}
+                >
+                  {cat.title}
+                </button>
+                <div class="accordion-panel main-panel">
+                  {cat.subsections.map((sub, subIndex) => (
+                    <div class="sub-accordion">
+                      <button
+                        class="sub-accordion-header"
+                        data-subindex={`porcinos-${index}-${subIndex}`}
+                      >
+                        <span class="icon">+</span> {sub.title}
+                      </button>
+                      <div class="sub-accordion-panel">
+                        <ul>
+                          {sub.items.map((item) => (
+                            <li>
+                              -{" "}
+                              <strong>
+                                {item.label}
+                                {item.desc ? ":" : ""}
+                              </strong>{" "}
+                              {item.desc}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))
+          }
         </div>
 
         <!-- OTROS -->
         <div id="otros" class="tab-content">
-          <h2>SERVICIOS GENERALES</h2>
-          <ul>
-            <li>
-              - <strong>ANÁLISIS AMBIENTAL:</strong> Agua, suelo, superficies.
-            </li>
-            <li>
-              - <strong>ANÁLISIS NUTRICIONAL:</strong> Balanceados, materias primas.
-            </li>
-            <li>- <strong>DIAGNÓSTICO RÁPIDO:</strong> Kits inmunológicos.</li>
-          </ul>
+          {
+            servicesData.otros.categories.map((cat, index) => (
+              <div class="accordion-group">
+                <button
+                  class="accordion-header main-category"
+                  data-index={`otros-${index}`}
+                >
+                  {cat.title}
+                </button>
+                <div class="accordion-panel main-panel">
+                  {cat.subsections.map((sub, subIndex) => (
+                    <div class="sub-accordion">
+                      <button
+                        class="sub-accordion-header"
+                        data-subindex={`otros-${index}-${subIndex}`}
+                      >
+                        <span class="icon">+</span> {sub.title}
+                      </button>
+                      <div class="sub-accordion-panel">
+                        <ul>
+                          {sub.items.map((item) => (
+                            <li>
+                              -{" "}
+                              <strong>
+                                {item.label}
+                                {item.desc ? ":" : ""}
+                              </strong>{" "}
+                              {item.desc}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))
+          }
         </div>
       </div>
     </section>
@@ -110,6 +459,7 @@ import NavInterno from "../components/NavInterno.astro";
     justify-content: center;
     gap: 80px;
     margin-bottom: 40px;
+    flex-wrap: wrap; /* responsive */
   }
 
   .tab {
@@ -120,6 +470,11 @@ import NavInterno from "../components/NavInterno.astro";
     background: transparent;
     cursor: pointer;
     padding: 10px 20px;
+    transition: all 0.3s ease;
+  }
+
+  .tab:hover {
+    opacity: 0.8;
   }
 
   .tab.active {
@@ -143,6 +498,87 @@ import NavInterno from "../components/NavInterno.astro";
     display: block;
   }
 
+  @keyframes fade {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ACCORDION STYLES */
+  .accordion-header.main-category {
+    background: none;
+    border: none;
+    border-bottom: 4px solid #006400;
+    width: 100%;
+    text-align: left;
+    font-size: 28px;
+    font-weight: 800;
+    color: #006400;
+    padding: 15px 0;
+    cursor: pointer;
+    margin-top: 20px;
+    outline: none;
+  }
+
+  /* Make main headers clickable to toggle their whole section if desired, 
+     or just static headers. User request implies subsections toggle. 
+     Currently making main category just a header, but let's make it interactive 
+     if user wants sections to collapse. 
+     The request says: "en AVES cuando se le hace click a MICROBIOLOGIA se muestra las secciones que tienen un +"
+     So the Main Category IS clickable.
+  */
+
+  .accordion-panel {
+    display: none;
+    overflow: hidden;
+    padding-left: 10px;
+  }
+
+  .accordion-panel.active {
+    display: block;
+  }
+
+  /* SUB-ACCORDION */
+  .sub-accordion {
+    margin: 15px 0;
+  }
+
+  .sub-accordion-header {
+    background: none;
+    border: none;
+    color: #006400;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+    text-transform: uppercase;
+  }
+
+  .sub-accordion-panel {
+    display: none;
+    padding-left: 25px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .sub-accordion-panel.active {
+    display: block;
+  }
+
+  .icon {
+    font-weight: bold;
+    display: inline-block;
+    width: 20px;
+  }
+
   h2 {
     margin: 25px 0 10px;
     font-size: 28px;
@@ -153,33 +589,68 @@ import NavInterno from "../components/NavInterno.astro";
   }
 
   ul {
-    margin: 15px 0 25px;
-    padding-left: 20px;
-    line-height: 1.8;
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+  }
+
+  li {
+    margin-bottom: 8px;
+  }
+
+  .video-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 30px auto;
   }
 </style>
+
 <script>
+  // Tab Switching Logic
   document.querySelectorAll(".tab").forEach((btn) => {
     btn.addEventListener("click", () => {
-      // Tabs
+      // Remove active class from all tabs
       document
         .querySelectorAll(".tab")
         .forEach((t) => t.classList.remove("active"));
+      // Add active class to clicked tab
       btn.classList.add("active");
 
-      // Contents
+      // Hide all tab contents
       document
         .querySelectorAll(".tab-content")
         .forEach((c) => c.classList.remove("active"));
-      document.getElementById(btn.dataset.target).classList.add("active");
+      // Show target tab content
+      const targetId = (btn as HTMLElement).dataset.target;
+      document.getElementById(targetId).classList.add("active");
     });
   });
 
+  // Main Accordion Logic (MICROBIOLOGÍA, etc.)
   document
-    .getElementById("microbiologia")
-    .addEventListener("click", function () {
-      const content = document.querySelector(".microbiologia-content");
-      content.style.display =
-        content.style.display === "none" ? "block" : "none";
+    .querySelectorAll(".accordion-header.main-category")
+    .forEach((header) => {
+      header.addEventListener("click", () => {
+        // Toggle the panel next to it
+        const panel = header.nextElementSibling;
+        panel.classList.toggle("active");
+      });
     });
+
+  // Sub Accordion Logic (+ CASOS CLÍNICOS, etc.)
+  document.querySelectorAll(".sub-accordion-header").forEach((header) => {
+    header.addEventListener("click", () => {
+      const panel = header.nextElementSibling;
+      const icon = header.querySelector(".icon");
+
+      if (panel.classList.contains("active")) {
+        panel.classList.remove("active");
+        icon.textContent = "+";
+      } else {
+        panel.classList.add("active");
+        icon.textContent = "-";
+      }
+    });
+  });
 </script>
