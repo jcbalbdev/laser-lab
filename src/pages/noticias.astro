@@ -1,31 +1,182 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Bannerimagenfull from '../components/Bannerimagenfull.astro';
-import NavInternoCards from '../components/NavInternoCards.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Laboratorio Laser - Noticias">
-	<main class="main-content">
-		<Bannerimagenfull/>
-    <NavInternoCards/>
-    
-    
-	</main>
-	
-	
-	
+<Layout title="Laboratorio Laser - Publicaciones">
+  <main class="main-content">
+    <section class="banner-section">
+      <img
+        src="banner_publicaciones.png"
+        alt="Publicaciones Banner"
+        class="banner-img"
+      />
+    </section>
+
+    <section class="publications-section">
+      <h2 class="section-title">NOTICIAS</h2>
+
+      <a
+        href="https://drive.google.com/file/d/1wpUsNhkGxhaH4ApkIsGv2GO128GFeR2i/view?usp=drive_link"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="card"
+      >
+        <div class="card-image">
+          <!-- Placeholder image or the specific pig image if available. Using a generic placeholder for now as the asset was not provided, but ensuring <img> tag exists -->
+          <img src="/comunicado-09.jpeg" alt="Cerdos Glässer" />
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">SENASA - COMUNICADO N° 9</h3>
+          <p class="card-text">
+            El Ministerio de Desarrollo Agrario y Riego autoriza a laboratorios
+            para la prestación del servicio de diagnóstico de influenza tipo A
+            mediante la prueba de Reacción en Cadena de la Polimerasa (PCR) en
+            tiempo real mediante Rresolución Jefatural No
+            D000001-2024-MIDAGRI-SENASA-JN
+          </p>
+        </div>
+      </a>
+      <a
+        href="https://mapglobalmedia.com/2023/03/22/senasa-autoriza-a-laboratorios-lasser-para-diagnostico-de-ia-en-peru/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="card"
+      >
+        <div class="card-image">
+          <!-- Placeholder image or the specific pig image if available. Using a generic placeholder for now as the asset was not provided, but ensuring <img> tag exists -->
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">
+            Senasa autoriza a Jallavet S.A.C (Laboratorios Lasser) para
+            diagnóstico de Influenza Aviar tipo «A» en Perú
+          </h3>
+          <p class="card-text">
+            Jallavet S.A.C., con nombre comercial Laboratorio Lasser, ha
+            obtenido el convenio N° 002-UGCA/DSA otorgado por SENASA en el cual
+            lo autoriza como Laboratorio para diagnosticar el Virus de Influenza
+            Aviar tipo «A» mediante la prueba de PCR-RT a nivel nacional. Hasta
+            el momento SENASA ha autorizado la distribución de 4 vacunas y a 3
+            laboratorios para el descarte de Influenza Aviar
+          </p>
+        </div>
+      </a>
+      <a
+        href="https://drive.google.com/file/d/1_hUTpFhexJQxJy46UCouwONQXBo_HHjb/view?usp=drive_link"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="card"
+      >
+        <div class="card-image">
+          <!-- Placeholder image or the specific pig image if available. Using a generic placeholder for now as the asset was not provided, but ensuring <img> tag exists -->
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">
+            JALLAVET S.A.C. obtiene constancia por “Auditoría interna del
+            Laboratorio de Biología Molecular”.
+          </h3>
+          <p class="card-text">
+            Innovation & Quality S.A.C., empresa dedicada a las consultorías,
+            capacitaciones, auditorías y asesorías en sistemas de gestión,
+            otorgó la constancia a JALLAVET S.A.C. por su participación en el
+            proceso de “AUDITORÍA INTERNA DEL LABORATORIO DE BIOLOGÍA MOLECULAR”
+            (Detección de Salmonella sp por la técnica de PCR en tiempo real) en
+            cumplimiento de los requisitos de la norma NTP ISO/IEC 17025:2017 y
+            en el marco de los principios de las Buenas Prácticas de Laboratorio
+            (BPL).
+          </p>
+        </div>
+      </a>
+    </section>
+  </main>
 </Layout>
 
 <style>
-  /* Contenedor Principal (main) */
   .main-content {
     width: 100%;
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: sans-serif;
   }
-  
 
+  .banner-section {
+    width: 100%;
+  }
 
-  </style>
+  .banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .publications-section {
+    max-width: 1000px; /* Same max-width as servicios for consistency */
+    padding: 40px 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .section-title {
+    text-align: center;
+    color: #006400; /* Green color from image */
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+  }
+
+  .card {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .card-image {
+    flex: 0 0 300px; /* Fixed width for image container */
+  }
+
+  .card-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px; /* Slight rounding if desired */
+    object-fit: cover;
+  }
+
+  .card-content {
+    flex: 1;
+  }
+
+  .card-title {
+    color: #4caf50; /* A slightly lighter green for the card title based on image? Or consistent dark green? Image looks like a lighter/vibrant green. Let's try #4CAF50 or keep #006400 matching branding. Image looks fairly matching. Let's use #4a8b4a or similar. Actually, let's stick to the branding #006400 or similar if needed. The image text looks like #4e9f3d or similar. I'll stick to a standard green. */
+    color: #2e7d32;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .card-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    text-align: justify;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .card {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card-image {
+      flex: none;
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+</style>

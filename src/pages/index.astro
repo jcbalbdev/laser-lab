@@ -25,9 +25,11 @@ import Card from "../components/Card.astro";
           <div class="info-container">
             <div class="green-line"></div>
             <p class="info-text">
-              Lasser Laboratorios Veterinarios es una empresa peruana dedicada a
-              servicios para el sector pecuario. Contamos con el reconocimiento
-              de las instituciones nacionales e internacionales más relevantes
+              Laboratorios Veterinarios Lasser es una empresa dedicada a la
+              investigación y el desarrollo de nuevas técnicas para una mejora
+              continua dentro del sector pecuario peruano. Contamos con el
+              reconocimiento de las instituciones nacionales e internacionales
+              más relevantes.
             </p>
             <div class="green-line"></div>
           </div>
@@ -40,9 +42,11 @@ import Card from "../components/Card.astro";
           <div class="info-container">
             <div class="green-line"></div>
             <p class="info-text">
-              JALLAVET S.A.C. es una empresa dedicada a brindar soluciones
-              integrales en salud animal, comprometidos con la calidad y la
-              innovación en cada uno de nuestros servicios.
+              JALLAVET S.A.C. es un laboratorio de ensayo comprometido con la
+              calidad, la imparcialidad y la mejora continua, cumpliendo la
+              norma ISO 17025 mediante personal competente y tecnología de
+              última generación. Brindamos diagnósticos precisos y oportunos con
+              asesoría especializada para los sectores agropecuarios.
             </p>
             <div class="green-line"></div>
           </div>
@@ -105,9 +109,13 @@ import Card from "../components/Card.astro";
       <h2 class="cert-title">CERTIFICACIONES</h2>
 
       <div class="cert-container">
-        <!-- Imagen del slide (tu captura) -->
+        <!-- IAS Accredited Testing Laboratory Certificate -->
         <div class="cert-image-wrapper">
-          <img src="slide.png" alt="Certificaciones" class="cert-image" />
+          <img
+            src="ias-certificate.png"
+            alt="IAS Accredited Testing Laboratory"
+            class="cert-image"
+          />
         </div>
       </div>
     </section>
@@ -450,33 +458,29 @@ import Card from "../components/Card.astro";
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    padding: 40px 20px;
   }
 
-  /* FLECHAS */
-  .arrow span {
-    font-size: 40px;
-    font-weight: bold;
-    color: #006400;
-    display: inline-block;
-    border: 3px solid #006400;
-    width: 55px;
-    height: 55px;
-    line-height: 48px;
-    border-radius: 50%;
-    text-align: center;
-  }
-
-  /* IMAGEN CENTRAL */
+  /* CERTIFICATE IMAGE */
   .cert-image-wrapper {
-    width: 850px; /* ajusta según necesites */
+    max-width: 250px;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .cert-image-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   }
 
   .cert-image {
     width: 100%;
     height: auto;
-    object-fit: contain;
-    border-radius: 6px;
+    display: block;
   }
   .contact-section {
     width: 100%;
