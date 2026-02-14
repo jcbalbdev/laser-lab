@@ -6,7 +6,7 @@ import Layout from "../layouts/Layout.astro";
   <main class="main-content">
     <section class="banner-section">
       <img
-        src="banner_publicaciones.png"
+        src="/galeria/DSCF1380.jpeg"
         alt="Publicaciones Banner"
         class="banner-img"
       />
@@ -44,6 +44,7 @@ import Layout from "../layouts/Layout.astro";
       >
         <div class="card-image">
           <!-- Placeholder image or the specific pig image if available. Using a generic placeholder for now as the asset was not provided, but ensuring <img> tag exists -->
+          <img src="/noticiasenasaautoriza.jpeg" alt="Cerdos Glässer" />
         </div>
         <div class="card-content">
           <h3 class="card-title">
@@ -68,6 +69,10 @@ import Layout from "../layouts/Layout.astro";
       >
         <div class="card-image">
           <!-- Placeholder image or the specific pig image if available. Using a generic placeholder for now as the asset was not provided, but ensuring <img> tag exists -->
+          <img
+            src="/noticiajallavetobtieneconstancia.jpg"
+            alt="Cerdos Glässer"
+          />
         </div>
         <div class="card-content">
           <h3 class="card-title">
@@ -83,6 +88,34 @@ import Layout from "../layouts/Layout.astro";
             cumplimiento de los requisitos de la norma NTP ISO/IEC 17025:2017 y
             en el marco de los principios de las Buenas Prácticas de Laboratorio
             (BPL).
+          </p>
+        </div>
+      </a>
+      <a
+        href="https://drive.google.com/file/d/1_hUTpFhexJQxJy46UCouwONQXBo_HHjb/view?usp=drive_link"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="card"
+      >
+        <div class="card-image">
+          <!-- Placeholder image or the specific pig image if available. Using a generic placeholder for now as the asset was not provided, but ensuring <img> tag exists -->
+          <img src="/noticia_ias_certificado.jpeg" alt="Cerdos Glässer" />
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">
+            Laboratorio Lasser obtiene la acreditación internacional ISO/IEC
+            17025:2017
+          </h3>
+          <p class="card-text">
+            Laboratorio Lasser ha sido oficialmente acreditado bajo la norma
+            ISO/IEC 17025:2017 por el International Accreditation Service (IAS),
+            con acreditación en microbiología, serología y biología molecular,
+            reconocimiento que certifica nuestra competencia técnica, la
+            confiabilidad de nuestros resultados y la solidez de nuestro sistema
+            de gestión de calidad. Este logro consolida nuestro compromiso con
+            la excelencia, la mejora continua y el cumplimiento de estándares
+            internacionales, fortaleciendo nuestra posición como referente en
+            servicios analíticos de alto nivel.
           </p>
         </div>
       </a>
@@ -118,7 +151,7 @@ import Layout from "../layouts/Layout.astro";
 
   .section-title {
     text-align: center;
-    color: #006400; /* Green color from image */
+    color: #008c5e; /* Green color from image */
     font-size: 28px;
     font-weight: 800;
     margin-bottom: 40px;
@@ -150,7 +183,7 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .card-title {
-    color: #4caf50; /* A slightly lighter green for the card title based on image? Or consistent dark green? Image looks like a lighter/vibrant green. Let's try #4CAF50 or keep #006400 matching branding. Image looks fairly matching. Let's use #4a8b4a or similar. Actually, let's stick to the branding #006400 or similar if needed. The image text looks like #4e9f3d or similar. I'll stick to a standard green. */
+    color: #4caf50; /* A slightly lighter green for the card title based on image? Or consistent dark green? Image looks like a lighter/vibrant green. Let's try #4CAF50 or keep #008c5e matching branding. Image looks fairly matching. Let's use #4a8b4a or similar. Actually, let's stick to the branding #008c5e or similar if needed. The image text looks like #4e9f3d or similar. I'll stick to a standard green. */
     color: #2e7d32;
     font-size: 20px;
     font-weight: 700;
@@ -162,7 +195,7 @@ import Layout from "../layouts/Layout.astro";
   .card-text {
     font-size: 16px;
     line-height: 1.6;
-    color: #333;
+    color: #666666;
     text-align: justify;
   }
 
