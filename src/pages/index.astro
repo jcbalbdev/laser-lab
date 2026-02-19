@@ -9,9 +9,11 @@ import Card from "../components/Card.astro";
     <div class="video-container">
       <iframe
         class="video"
-        src="https://www.youtube.com/embed/VIDEO_ID"
-        title="Video Title"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        src="https://www.youtube.com/embed/SExNzyzh7GA?si=2ukxlrzBsD3hT97R"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen></iframe>
     </div>
     <section class="labs-section">
@@ -204,12 +206,10 @@ import Card from "../components/Card.astro";
   /* Video Container */
   .video-container {
     width: 100%;
-    max-width: 2400px;
     padding-bottom: 56.25%;
     position: relative;
-    background-color: #f9f9f9;
+    background-color: #000;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px; /* Espacio entre el video y las cards */
   }
 
